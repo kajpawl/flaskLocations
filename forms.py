@@ -12,3 +12,10 @@ class SignupForm(Form):
                                                      Length(min=6, max=54,
                                                             message="Password must have 6 to 54 characters.")])
     submit = SubmitField('Sign up')
+
+
+class LoginForm(Form):
+    email = StringField('Email', validators=[DataRequired("Please enter your email address."),
+                                             Email("Please make sure that email format is correct.")])
+    password = PasswordField('Password', validators=[DataRequired("Please enter your password.")])
+    submit = SubmitField('Sign in')
